@@ -1,8 +1,9 @@
 <header>
   <nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
-    <a class='navbar-brand' href='/'>
-      <%=image_tag 'logo.png' %>
-    </a>
+
+    <%= link_to root_path, class: 'navbar-brand' do %>
+      <%= image_tag 'logo.png' %>
+    <% end %>
     <button class='navbar-toggler' data-toggle='collapse' data-target='#navbarSupportedContent'
       aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
       <span class='navbar-toggler-icon'></span>
@@ -16,13 +17,13 @@
           </a>
 
           <div class='dropdown-menu dropdown-menu-right'>
-            <a class='dropdown-item' href='#'>掲示板一覧</a>
-            <a class='dropdown-item' href='#'>掲示板作成</a>
+            <%= link_to '掲示板一覧', '#', class:'dropdown-item' %>
+            <%= link_to '掲示板作成', '#', class:'dropdown-item' %>
           </div>
         </li>
 
         <li class='nav-item'>
-          <a class='nav-link' href='#'>ブックマーク一覧</a>
+          <%= link_to 'ブックマーク一覧', '#', class:'nav-link' %>
         </li>
 
         <li class='nav-item dropdown dropdown-slide'>
@@ -32,8 +33,8 @@
           <div class='dropdown-menu dropdown-menu-right'>
             <div class='dropdown-item'>らんてっく たろう</div>
             <div class='dropdown-divider'></div>
-            <a class='dropdown-item' href='#'>プロフィール</a>
-            <a class='dropdown-item' href='#'>ログアウト</a>
+            <%= link_to 'プロフィール', '#', class:'dropdown-item' %>
+            <%= link_to 'ログアウト', '#', class:'dropdown-item' %>
           </div>
         </li>
       </ul>
