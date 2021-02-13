@@ -1,0 +1,13 @@
+
+<%= form_with url: login_path, local: true do |f| %>
+  <%= f.label :email %>
+  <%= f.email_field :email %><br>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %><br>
+
+  <%= f.submit "ログイン！！" %>
+<% end %>
+
+<%= link_to 'Back', users_path %>|
+<%= link_to '新規登録', new_user_path %>
