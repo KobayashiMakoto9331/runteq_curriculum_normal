@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # before_action :set_user, only: [:show, :edit, :update, :destroy]
-  skip_before_action :require_login, only: [:index, :new, :create]
+  skip_before_action :require_login, only: %i[:index, :new, :create]
 
   # GET /users
   # GET /users.json
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
-  
+
   def user_params
     params.require(:user).permit(:last_name, :first_name, :email, :password, :password_confirmation)
   end
