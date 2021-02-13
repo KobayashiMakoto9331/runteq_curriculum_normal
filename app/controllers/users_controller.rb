@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # before_action :set_user, only: [:show, :edit, :update, :destroy]
-  skip_before_action :require_login, only: [:index, :new, :create]
+  skip_before_action :require_login, only: %i[index new create]
 
   # GET /users
   # GET /users.json
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show; end
-  
+
   # GET /users/new
   def new
     @user = User.new
