@@ -4,7 +4,7 @@ ja:
       user: 'ユーザー'
     attributes:
       user:
-        first_name: '性'
+        first_name: '姓'
         last_name: '名'
         email: 'メールアドレス'
         password: "パスワード"
