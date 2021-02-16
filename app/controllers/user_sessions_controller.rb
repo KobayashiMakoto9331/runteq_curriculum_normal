@@ -11,13 +11,11 @@ class UserSessionsController < ApplicationController
       redirect_back_or_to(root_path, notice: 'Login successful')
     else
       flash.now[:alert] = 'Login failed'
-      render action: 'new'
+      render :new
     end
   end
 
   def destroy
-    # logout
-    # redirect_to(root_url, notice: 'Logged out!')
     logout
     redirect_to root_path
   end
