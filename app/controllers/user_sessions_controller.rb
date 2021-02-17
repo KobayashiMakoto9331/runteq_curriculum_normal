@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
     if @user
       redirect_back_or_to(root_path, success: 'ログインしました')
     else
-      flash.now[:danger] = 'Login failed'
+      flash.now[:danger] = 'ログインに失敗しました'
       render :new
     end
   end
