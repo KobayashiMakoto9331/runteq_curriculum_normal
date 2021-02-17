@@ -1,21 +1,23 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-      <h1>ユーザー登録</h1>
-      <%= form_with(model: user, local: true) do |f| %>
+      <%# <h1><%= t '.title'</h1> %> 
+      
+      <%# <% if user.errors.any? %>
+            <%# <div id="error_explanation"> %>
+              <%# <h2><%= pluralize(user.errors.count, "error") prohibited this user from being saved:</h2> %> 
 
-          <% if user.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-              <ul>
+              <%# <ul>
               <% user.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-              </ul>
+                <%# <li><%= message %></li>
+              <%# <% end %>
+              <%# </ul>
             </div>
           <% end %>
 
+      <%= form_with(model: @user, local: true) do |f| %>
+
+          
           <div class="form-group">
             <%= f.label :last_name %>
             <%= f.text_field :last_name, class: 'form-control' %>
@@ -41,9 +43,12 @@
           </div>  
 
           <div class="actions">
-            <%= f.submit '登録', class: 'btn btn-primary' %>
+            <%= f.submit (t 'defaults.register'), class: 'btn btn-primary' %>
           </div>
       <% end %>
+      <div class='text-center'>
+         <%= link_to (t 'users.new.to_login_page'), login_path %>
+       </div>
     </div>
   </div>
 </div>

@@ -1,15 +1,26 @@
 ja:
-  users: 
-    new:
-      last_name: '姓'
-      first_name: '名'
-      email: 'メールアドレス'
-      password: 'パスワード'
-      password_confirmation: '確認用パスワード'
-      title: 'ユーザー登録'
-  
-  user_sessions:
-    new:
-      email: 'メールアドレス'
-      password: 'パスワード'
-      login: 'ログイン'
+   defaults:
+     login: 'ログイン'
+     register: '登録'
+     logout: 'ログアウト'
+   users:
+     new:
+       title: 'ユーザー登録'
+       to_login_page: 'ログインページへ'
+     edit:
+       editing_user: 'ユーザー編集'
+   user_sessions:
+     new:
+       title: 'ログイン'
+       to_register_page: '登録ページへ'
+       password_forget: 'パスワードをお忘れの方はこちら'
+   boards:
+     index:
+       title: '掲示板一覧'
+     new:
+       title: '掲示板作成'
+     bookmarks:
+       title: 'ブックマーク一覧'
+   profiles:
+     show:
+       title: 'プロフィール'

@@ -16,10 +16,12 @@
     <%= render "shared/before_login_header" %>
 　<% end %>
 
-  <div>
-    <p id="notice"><%= flash[:notice] %></p>
-    <p id="alert"><%= flash[:alert] %></p>
-  </div>
+  <%= render "shared/flash_message" %>
+
+  <%# <div>  %>
+    <%# <p id="notice"><%= flash[:notice]</p> %> 
+    <%# <p id="alert"><%= flash[:alert]</p> %> 
+  <%# </div> %>
 
     <%= yield %>
     <%= render 'shared/footer'%>
