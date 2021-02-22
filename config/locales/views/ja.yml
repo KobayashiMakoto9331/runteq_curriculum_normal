@@ -32,6 +32,13 @@ ja:
        title: '掲示板作成'
      bookmarks:
        title: 'ブックマーク一覧'
-   profiles:
-     show:
-       title: 'プロフィール'
+     profiles:
+       show:
+         title: 'プロフィール'
+   time:
+    am: 午前
+    formats:
+        default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+        long: "%Y/%m/%d %H:%M"
+        short: "%m/%d %H:%M"
+  
