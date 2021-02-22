@@ -3,6 +3,7 @@ ja:
      login: 'ログイン'
      register: '登録'
      logout: 'ログアウト'
+     title: 'プロフィール'
 
    users:
      new:
@@ -32,9 +33,7 @@ ja:
        title: '掲示板作成'
      bookmarks:
        title: 'ブックマーク一覧'
-     profiles:
-       show:
-         title: 'プロフィール'
+     
    time:
     am: 午前
     formats:
