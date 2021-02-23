@@ -8,9 +8,9 @@ class BoardsController < ApplicationController
   def create
     @board = current_user.boards.new(board_params)
     if @board.save
-      redirect_to boards_path, success: t('.success')
+      redirect_to boards_path, success: t('defaults.message.created', item: Board.model_name.human)
     else
-      flash.now[:danger] = t('.fail')
+      flash.now[:danger] = t('defaults.message.not_created', item: Board.model_name.human)
       render :new
     end
   end
@@ -18,10 +18,14 @@ class BoardsController < ApplicationController
   def index
     @boards = Board.all.includes(:user).order(created_at: :desc)
   end
-end
+  
+  def show
+    @board = Board.find(params[:id])
+  end
 
 private
 
-def board_params
-  params.require(:board).permit(:title, :body)
+  def board_params
+    params.require(:board).permit(:title, :body)
+  end
 end
