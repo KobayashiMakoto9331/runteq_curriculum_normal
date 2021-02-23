@@ -7,7 +7,6 @@ class BoardsController < ApplicationController
 
   def create
     @board = current_user.boards.new(board_params)
-   
     if @board.save
       redirect_to boards_path, success: t('.success')
     else
@@ -26,4 +25,3 @@ private
 def board_params
   params.require(:board).permit(:title, :body)
 end
-
