@@ -1,8 +1,18 @@
+20.times do
+  User.create!(
+    first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      email: Faker::Internet.email,
+      password: '12345678',
+      password_confirmation: '12345678'
+  )
+end
+
+
 20.times do |n|
   title = Faker::Color.color_name
   body = Faker::Beer.malts
-  user = User.find(rand(15..20))
   Board.create!(title: title,
                 body: body,
-                user: user)
+                user: User.offset(rand(User.count)).first,)
 end
