@@ -1,0 +1,50 @@
+<div class="container pt-5">
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>掲示板詳細</h1>
+      <!-- 掲示板内容 -->
+      <article class="card">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col-md-3'>
+              <img class="card-img-top img-fluid" src="sample.jpg" width="300" height="200" />
+            </div>
+            <div class='col-md-9'>
+              <h3 style='display: inline;'><%= @board.title %></h3>
+              <ul class="list-inline">
+                <li class="list-inline-item"><%= @board.user.decorate.full_name %></li>
+                <li class="list-inline-item"><%= l @board.created_at, format: :short %></li>
+              </ul>
+            </div>
+          </div>
+          <p><%= @board.body %></p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- コメントフォーム -->
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <%= form_with model: [@board, @comment], local: true do |f| %> 
+        <%= f.label :body %>
+        <%= f.text_area :body, class:'form-control mb-3', row:"4" %>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+
+
+  <!-- コメントエリア -->
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <table id="js-table-comment" class="table">
+       <%# <%binding.pry%>  
+        <%# <%= render 'comments/comment', { board: @board, comment: @comment } %> 
+        <%# <%= render @comments %> 
+        <%# <% render 'comments/comment', { comments: @comments } %> 
+        <%= render partial: 'comments/comment', collection: @comments %>
+      </table>
+    </div>
+  </div>
+</div>
