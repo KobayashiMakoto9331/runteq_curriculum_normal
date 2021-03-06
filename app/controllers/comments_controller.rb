@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
@@ -9,7 +8,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit;end
+  def edit; end
 
   private
 
