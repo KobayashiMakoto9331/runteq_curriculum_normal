@@ -5,12 +5,11 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to board_path(params[:board_id]), success: 'コメントを作成しました'
     else
-      flash.now[:danger] = 'コメントを作成できませんでした'
-      render 'boards/show'
+      redirect_to board_path(@comment.board), danger: 'コメントを作成できませんでした'
     end
   end
 
-  def edit；end
+  def edit;end
 
   private
 

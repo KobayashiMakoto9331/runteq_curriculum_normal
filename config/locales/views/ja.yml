@@ -44,6 +44,9 @@ ja:
        fail: '掲示板を作成できませんでした'
      bookmarks:
        title: 'ブックマーク一覧'
+   comments:
+     new:
+       create: '投稿'
      
    time:
     am: 午前
