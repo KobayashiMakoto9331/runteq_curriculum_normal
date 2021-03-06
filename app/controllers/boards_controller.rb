@@ -23,8 +23,6 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
     @comment = Comment.new
     @comments = @board.comments.all.order(created_at: :desc)
-    
-    #@comments = @board.comments.include(:user).order(created_at: :desc)
   end
 
   private
