@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RunteqNormal</title>
+    <title><%= page_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,19 +10,13 @@
   </head>
 
   <body>
-  <% if logged_in? %>
-    <%= render "shared/header" %>
-  <% else %>
-    <%= render "shared/before_login_header" %>
-　<% end %>
+    <% if logged_in? %>
+      <%= render "shared/header" %>
+    <% else %>
+      <%= render "shared/before_login_header" %>
+　  <% end %>
 
-  <%= render "shared/flash_message" %>
-
-  <%# <div>  %>
-    <%# <p id="notice"><%= flash[:notice]</p> %> 
-    <%# <p id="alert"><%= flash[:alert]</p> %> 
-  <%# </div> %>
-
+    <%= render "shared/flash_message" %>
     <%= yield %>
     <%= render 'shared/footer'%>
   </body>

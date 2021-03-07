@@ -1,9 +1,10 @@
 <div class="row mb-3">
   <div class="col-lg-8 offset-lg-2">
-    <%= form_with model: [@board, @comment], local: true do |f| %> 
+    <%= form_with model: [board, comment], local: true do |f| %>  
+    <%#<%= form_with model: comment, url: [board, comment], local: true do |f| %>
       <%= f.label :body %>
       <%= f.text_area :body, class:'form-control mb-3', row:"4", placeholder: "コメント" %>
-      <%= f.submit (t 'comments.new.create'), class: 'btn btn-primary' %>
+      <%= f.submit t('defaults.post'), class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>

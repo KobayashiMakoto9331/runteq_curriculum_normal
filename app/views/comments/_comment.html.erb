@@ -16,11 +16,12 @@
             </div>
           </td>
 
-          <td class="action">
-            <% if comment.user_id == current_user.id %>
+          <% if current_user.own?(comment) %>
+            <td class="action">
               <ul class="list-inline justify-content-center" style="float: right;">
                 <li class="list-inline-item">
-                  <%= link_to edit_comment_path do %>
+                <a href="#"  data-comment-id="<%= comment.id %>">
+                  <%= link_to comment_path do %>
                     <i class="fa fa-edit fa-2x"></i>
                   <% end %>
                 </li>
@@ -30,7 +31,6 @@
                   <% end %>
                 </li>
               </ul>
-            <% end %>
-          </td>
-          
+            </td>
+          <% end %>
       </tr>
