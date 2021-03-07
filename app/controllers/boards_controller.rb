@@ -24,7 +24,7 @@ class BoardsController < ApplicationController
     @comment = Comment.new
     # @comments = @board.comments.all.order(created_at: :desc)
     @comments = @board.comments.includes(:user).order(created_at: :desc)
-   end
+  end
 
   private
 
