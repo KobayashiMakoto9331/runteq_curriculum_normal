@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_action :set_user, only: %i[edit destroy]
+  before_action :set_board, only: %i[edit destroy]
   # skip_before_action :require_login, only: %i[new]
 
   def new
@@ -42,13 +42,14 @@ class BoardsController < ApplicationController
     if @board.update(board_params)
       redirect_to board_path(@board), success: t('defaults.message.update', item: Board.model_name.human)
     else
-      render :edit, danger: t('defaults.message.not_update', item: Board.model_name.human)
+      flash.now[:danger] = t('defaults.message.not_update', item: Board.model_name.human)
+      render :edit
     end
   end
 
   private
 
-  def set_user
+  def set_board
     @board = current_user.boards.find(params[:id])
   end
 
