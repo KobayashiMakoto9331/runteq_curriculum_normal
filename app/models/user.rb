@@ -14,4 +14,8 @@ class User < ApplicationRecord
   def own?(object)
     id == object.user_id
   end
+
+  def own_board?(board)
+    self.id == board.user_id
+  end
 end

@@ -10,6 +10,9 @@ ja:
        require_login: 'ログインしてください'
        created: '%{item}を作成しました'
        not_created: '%{item}を作成できませんでした'
+       destroy: '%{item}を削除しました'
+       update: '%{item}を更新しました'
+       not_update: '%{item}を更新できませんでした'
 
 
    users:
@@ -44,8 +47,11 @@ ja:
      create:
        success: '掲示板を作成しました'
        fail: '掲示板を作成できませんでした'
+     edit:
+       title: '掲示板編集'
      bookmarks:
        title: 'ブックマーク一覧'
+
    comments:
      new:
        create: '投稿'

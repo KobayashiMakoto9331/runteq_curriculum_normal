@@ -1,4 +1,5 @@
 class BoardsController < ApplicationController
+  before_action :set_user, only: %i[edit destroy]
   # skip_before_action :require_login, only: %i[new]
 
   def new
@@ -26,7 +27,30 @@ class BoardsController < ApplicationController
     @comments = @board.comments.includes(:user).order(created_at: :desc)
   end
 
+  def destroy
+    @board = Board.find(params[:id])
+    @board.destroy
+    redirect_to boards_path, success: t('defaults.message.destroy', item: Board.model_name.human)
+  end
+
+  def edit
+    @board = Board.find(params[:id])
+  end
+
+  def update
+    @board = Board.find(params[:id])
+    if @board.update(board_params)
+      redirect_to board_path(@board), success: t('defaults.message.update', item: Board.model_name.human)
+    else
+      render :edit, danger: t('defaults.message.not_update', item: Board.model_name.human)
+    end
+  end
+
   private
+
+  def set_user
+    @board = current_user.boards.find(params[:id])
+  end
 
   def board_params
     params.require(:board).permit(:title, :body, :board_image, :board_image_cache)
