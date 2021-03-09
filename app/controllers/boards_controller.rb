@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_action :set_board, only: %i[edit destroy]
+  before_action :set_board, only: %i[edit destroy update]
   # skip_before_action :require_login, only: %i[new]
 
   def new
