@@ -28,23 +28,27 @@ class BoardsController < ApplicationController
   end
 
   def destroy
-    @board = Board.find(params[:id])
-    @board.destroy
-    redirect_to boards_path, success: t('defaults.message.destroy', item: Board.model_name.human)
+    @board = current_user.boards.find(params[:id])
+    @board.destroy!
+    redirect_to boards_path, success: t('defaults.message.deleted', item: Board.model_name.human)
   end
 
   def edit
-    @board = Board.find(params[:id])
+    @board = current_user.boards.find(params[:id])
   end
 
   def update
-    @board = Board.find(params[:id])
+    @board = current_user.boards.find(params[:id])
     if @board.update(board_params)
-      redirect_to board_path(@board), success: t('defaults.message.update', item: Board.model_name.human)
+      redirect_to board_path(@board), success: t('defaults.message.updated', item: Board.model_name.human)
     else
-      flash.now[:danger] = t('defaults.message.not_update', item: Board.model_name.human)
+      flash.now[:danger] = t('defaults.message.not_updated', item: Board.model_name.human)
       render :edit
     end
+  end
+
+  def bookmarks
+    @bookmark_boards = current_user.bookmarks_boards.includes(:user).order(created_at: :desc)
   end
 
   private

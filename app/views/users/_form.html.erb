@@ -22,7 +22,7 @@
 
           <div class="form-group">
           <%= f.label :password %><br />
-          <%= f.password_field :password,class: 'form-control' %>
+          <%= f.password_field :password,class: 'form-control', data: {minlength: 'パスワードは３文字以上で入力してください'} %>
           </div>
           <div class="form-group">
             <%= f.label :password_confirmation %><br />
