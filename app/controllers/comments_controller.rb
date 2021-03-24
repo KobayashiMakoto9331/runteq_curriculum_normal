@@ -2,8 +2,8 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     @comment.save
-      # redirect_to board_path(comment.board), success: t('defaults.message.created', item: Comment.model_name.human)
-      # redirect_to board_path(comment.board), danger: t('defaults.message.not_created', item: Comment.model_name.human)
+    # redirect_to board_path(comment.board), success: t('defaults.message.created', item: Comment.model_name.human)
+    # redirect_to board_path(comment.board), danger: t('defaults.message.not_created', item: Comment.model_name.human)
   end
 
   def destroy
