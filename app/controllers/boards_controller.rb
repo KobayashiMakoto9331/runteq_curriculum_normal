@@ -18,6 +18,7 @@ class BoardsController < ApplicationController
 
   def index
     @boards = Board.all.includes(:user).order(created_at: :desc)
+    @board = User.page(params[:page]).per(20)
   end
 
   def show
@@ -49,6 +50,7 @@ class BoardsController < ApplicationController
 
   def bookmarks
     @bookmark_boards = current_user.bookmarks_boards.includes(:user).order(created_at: :desc)
+    @board = User.page(params[:page]).per(20)
   end
 
   private
