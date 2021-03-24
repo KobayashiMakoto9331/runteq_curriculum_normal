@@ -1,0 +1,14 @@
+<%# document.addEventListener('DOMContentLoaded', () =>
+{
+  console.log('DOMContentLoaded')
+  const buttonDelete
+  = document.getElementById("js-delete-comment-button")
+
+  buttonDelete.addEventListener('click', () => {
+    alert(`削除`)
+  })
+}); %>
+<%# $('#js-delete-comment-button').click(function () {
+  $('#comment-27').remove();
+}); %>
+$("#comment-<%= @comment.id %>").remove();

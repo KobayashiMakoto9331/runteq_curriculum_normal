@@ -17,16 +17,20 @@
           </td>
 
           <% if current_user.own?(comment) %>
-            <td class="action">
+            <td class="action" >
               <ul class="list-inline justify-content-center" style="float: right;">
                 <li class="list-inline-item">
                 <a href="#"  data-comment-id="<%= comment.id %>">
-                  <%= link_to comment_path do %>
+                  <%= link_to comment_path(comment) do %>
                     <i class="fa fa-edit fa-2x"></i>
                   <% end %>
                 </li>
                 <li class="list-inline-item">
-                  <%= link_to comment_path, method: :delete do %>
+                  <%= link_to comment_path(comment), 
+                              id: 'js-delete-comment-button',
+                              method: :delete,
+                              data: { confirm: '削除しますか'},
+                              remote: true do %>
                      <i class="fa fa-trash fa-2x"></i> 
                   <% end %>
                 </li>
