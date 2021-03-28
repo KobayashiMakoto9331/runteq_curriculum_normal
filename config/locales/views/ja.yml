@@ -2,7 +2,7 @@ ja:
    defaults:
      login: 'ログイン'
      register: '登録'
-     update: '更新'
+     update: '更新する'
      create: '作成'
      logout: 'ログアウト'
      post: '投稿'
@@ -27,7 +27,11 @@ ja:
        fail: 'ユーザー登録に失敗しました'
      edit:
        editing_user: 'ユーザー編集'
-
+   profiles:
+     show:
+       title: 'プロフィール'
+     end:
+       title: 'プロフィール編集'
    user_sessions:
      new:
        title: 'ログイン'
