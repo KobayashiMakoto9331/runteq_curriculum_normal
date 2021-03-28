@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :bookmarks_boards, through: :bookmarks, source: :board
   has_many :boards, dependent: :destroy
   has_many :comments, dependent: :destroy
+  mount_uploader :Avatar, AvatarUploader
 
   def own?(object)
     id == object.user_id

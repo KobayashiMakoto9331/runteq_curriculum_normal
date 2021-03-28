@@ -27,11 +27,11 @@
                 </li>
                 <li class="list-inline-item">
                   <%= link_to comment_path(comment), 
-                              class: 'js-delete-comment-button',
+                              id: 'js-delete-comment-button',
                               method: :delete,
                               data: { confirm: '削除しますか'},
                               remote: true do %>
-                     <%= icon 'fa', 'trash' %> 
+                    <%= icon 'fa', 'trash'  %> 
                   <% end %>
                 </li>
               </ul>

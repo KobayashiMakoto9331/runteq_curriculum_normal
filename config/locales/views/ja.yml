@@ -2,9 +2,11 @@ ja:
    defaults:
      login: 'ログイン'
      register: '登録'
+     update: '更新'
      create: '作成'
      logout: 'ログアウト'
      post: '投稿'
+     search_word: '検索ワード'
      title: 'プロフィール'
      message:
        require_login: 'ログインしてください'
