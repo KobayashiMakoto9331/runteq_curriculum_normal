@@ -1,0 +1,15 @@
+<%= content_for(:title, t('.title')) %>
+<%= form_with model: @user, url: password_reset_path(@token), local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+        
+    <%= f.label :email, User.human_attribute_name(:email) %><br>
+    <%= @user.email %>
+        
+    <%= f.label :password, User.human_attribute_name(:password) %><br>
+    <%= f.password_field :password %>
+        
+    <%= f.label :password_confirmation, User.human_attribute_name(:password_confirmation) %><br>
+    <%= f.password_field :password_confirmation %>
+        
+    <%= f.submit '更新する' %>
+<% end %>

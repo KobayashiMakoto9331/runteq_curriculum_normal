@@ -43,7 +43,11 @@ ja:
        fail: 'ログインに失敗しました'
      destroy:
        success: 'ログアウトしました'
-
+   password_resets:
+     new:
+       title: 'パスワードリセット申請'
+     edit:
+       title: 'パスワードリセット'
    boards:
      index:
        title: '掲示板一覧'
@@ -71,6 +75,9 @@ ja:
    comments:
      new:
        create: '投稿'
+
+   password_changes:
+     new:
      
    time:
     am: 午前
