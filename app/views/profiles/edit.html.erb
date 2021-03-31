@@ -1,38 +1,33 @@
-<% content_for :title do %>
-  プロフィール編集
-<% end %>
+<% content_for(:title, t('.title')) %>
 <div class="container">
   <div class="row">
     <div class="col-md-10 offset-md-1">
-      <h1>プロフィール編集</h1>
+      <h1><%= t('.title') %></h1>
     
-      <%= form_with model: @user, local: true, url: profile_path, method: :patch do |f| %>
+      <%= form_with model: @user, local: true, url: profile_path do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
           
-          <div class="form-group">
             <%= f.label :email %>
-            <%= f.email_field :email, class: 'form-control' %>
-          </div>
+            <%= f.email_field :email, class: 'form-control mb-3' %>
 
-          <div class="form-group">
             <%= f.label :last_name %>
-            <%= f.text_field :last_name, class: 'form-control' %>
-          </div>
+            <%= f.text_field :last_name, class: 'form-control mb-3' %>
 
-          <div class="form-group">
             <%= f.label :first_name %>
-            <%= f.text_field :first_name, class: 'form-control' %>
-          </div>
+            <%= f.text_field :first_name, class: 'form-control mb-3' %>
 
-          <div class="form-group">
             <%= f.label :Avatar %><br />
-            <%= f.file_field :Avatar, class: 'form-control mb-3', accept: 'image/*' %>
+            <%= f.file_field :Avatar, onchange: 'previewFileWithId(preview)', class: 'form-control mb-3', accept: 'image/*' %>
             <%= f.hidden_field :Avatar_cache %> 
-          </div>
 
-          <div class="actions">
-            <%= f.submit (t 'defaults.update'), class: 'btn btn-primary' %>
-          </div>
+            <div class='mt-3 mb-3'>
+              <%= image_tag @user.Avatar.url,
+                         class: 'rounded-circle',
+                         id: 'preview',
+                         size: '100x100' %>
+            </div>
+
+            <%= f.submit class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>

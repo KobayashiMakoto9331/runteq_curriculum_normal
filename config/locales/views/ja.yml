@@ -7,6 +7,7 @@ ja:
      logout: 'ログアウト'
      post: '投稿'
      search_word: '検索ワード'
+     edit: '編集'
      title: 'プロフィール'
      message:
        require_login: 'ログインしてください'
@@ -30,7 +31,7 @@ ja:
    profiles:
      show:
        title: 'プロフィール'
-     end:
+     edit:
        title: 'プロフィール編集'
    user_sessions:
      new:
