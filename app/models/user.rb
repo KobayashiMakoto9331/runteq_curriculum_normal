@@ -19,10 +19,6 @@ class User < ApplicationRecord
     id == object.user_id
   end
 
-  # def own_board?(board)
-  #   id == board.user_id
-  # end
-
   def bookmark(board)
     bookmarks_boards << board
   end
@@ -34,4 +30,10 @@ class User < ApplicationRecord
   def bookmark?(board)
     bookmarks_boards.include?(board)
   end
+
+  enum role:
+  {
+    general: 0,
+    admin: 1
+  }
 end

@@ -116,5 +116,28 @@ RSpec.describe '共通系', type: :system do
         end
       end
     end
+
+    context 'アドミン系画面' do
+      context 'ログイン前画面' do
+        describe 'ログインページ' do
+          it '正しいタイトルが表示されていること' do
+            visit admin_login_path
+            expect(page).to have_title('管理画面'), '管理画面のログインページのタイトルに「管理画面」が含まれていません'
+            expect(page).to have_title('ログイン'), '管理画面のログインページのタイトルに「ログイン」が含まれていません'
+          end
+        end
+      end
+
+      context 'ログイン後画面' do
+        before { login_as_admin }
+        describe 'ダッシュボード' do
+          it '正しいタイトルが表示されていること' do
+            visit admin_root_path
+            expect(page).to have_title('管理画面'), '管理画面のダッシュボードのタイトルに「管理画面」が含まれていません'
+            expect(page).to have_title('ダッシュボード'), '管理画面のダッシュボードのタイトルに「ダッシュボード」が含まれていません'
+          end
+        end
+      end
+    end
   end
 end

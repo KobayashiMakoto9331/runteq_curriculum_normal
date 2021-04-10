@@ -8,6 +8,7 @@ ja:
      post: '投稿'
      search_word: '検索ワード'
      edit: '編集'
+     password_reset: 'パスワードリセット'
      title: 'プロフィール'
      message:
        require_login: 'ログインしてください'
@@ -46,8 +47,14 @@ ja:
    password_resets:
      new:
        title: 'パスワードリセット申請'
+       submit: '送信'
      edit:
        title: 'パスワードリセット'
+     create: 
+       success: 'パスワードリセット手順を送信しました'
+     update:
+       success: 'パスワードを変更しました'
+       fail: 'パスワードの変更に失敗しました'
    boards:
      index:
        title: '掲示板一覧'
@@ -76,9 +83,6 @@ ja:
      new:
        create: '投稿'
 
-   password_changes:
-     new:
-     
    time:
     am: 午前
     formats:

@@ -8,7 +8,7 @@
               <%= f.label :email, User.human_attribute_name(:email) %>
               <%= f.email_field :email, class: 'form-control' %>
             </div>
-            <%= f.submit '送信', class: 'btn btn-primary' %>
+            <%= f.submit t('password_resets.new.submit'), class: 'btn btn-primary' %>
           <% end %>
       </div>
     </div>
