@@ -2,7 +2,6 @@ class Admin::UserSessionsController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
   layout 'admin/layouts/admin_login'
 
-
   def new; end
 
   def create
@@ -19,5 +18,4 @@ class Admin::UserSessionsController < ApplicationController
     logout
     redirect_to admin_login_path, success: 'ログアウトしました'
   end
-
 end
