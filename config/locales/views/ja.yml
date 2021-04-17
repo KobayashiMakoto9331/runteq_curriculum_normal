@@ -8,6 +8,7 @@ ja:
      post: '投稿'
      search_word: '検索ワード'
      edit: '編集'
+     delete: '削除'
      password_reset: 'パスワードリセット'
      title: 'プロフィール'
      message:
@@ -18,6 +19,7 @@ ja:
        not_updated: "%{item}を更新できませんでした"
        deleted: "%{item}を削除しました"
        delete_confirm: '削除しますか？'
+       not_authorized: '権限がありません'
 
 
    users:
@@ -78,10 +80,28 @@ ja:
      destroy:
        success: 'ブックマークを外しました'
 
-
    comments:
      new:
        create: '投稿'
+
+   admin:
+     users:
+       show:
+         title: 'ユーザー詳細'
+     dashboards:
+       index:
+         title: '掲示板'
+     user_sessions:
+       new:
+         title: 'ログイン'
+       create:
+         success: 'ログインしました'
+         fail: 'ログインに失敗しました'
+       destroy:
+         success: 'ログアウトしました'
+     dashboards:
+       index:
+         title: 'ダッシュボード'
 
    time:
     am: 午前

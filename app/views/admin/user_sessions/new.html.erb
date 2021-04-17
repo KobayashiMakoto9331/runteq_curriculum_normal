@@ -1,17 +1,16 @@
 <%= content_for(:title, t('.title')) %>
-
 <div class="login-box">
   <div class="login-logo">
-    <h1>ログイン</h1>
+    <h1><%= t('.title') %></h1>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
 
       <%= form_with url: admin_login_path, local: true do |f| %>
-        <%= f.label :email, 'メールアドレス'%>
+        <%= f.label :email, User.human_attribute_name(:email) %>
         <div class="input-group mb-3">
-          <%= f.text_field :email, class: 'form-control', placeholder: "Email" %>
+          <%= f.text_field :email, class: 'form-control', placeholder: :email %>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -19,9 +18,9 @@
           </div>
         </div>
 
-        <%= f.label :password, 'パスワード' %>
+        <%= f.label :password, User.human_attribute_name(:password) %>
         <div class="input-group mb-3">
-          <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+          <%= f.password_field :password, class: 'form-control', placeholder: :password %>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

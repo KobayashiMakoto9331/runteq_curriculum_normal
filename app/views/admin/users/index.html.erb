@@ -1,0 +1,44 @@
+  
+<nav class="navbar navbar-light bg-light">
+  <%= search_form_for @q, url: admin_users_path do |f| %>
+    <div class="input-group mb-3">
+      <%= f.search_field :first_name_or_last_name_cont, classs:"form-control", placeholder: t('defaults.search_word'), type:"search" %>
+
+      <div class="col-auto">
+        <%= f.select :role_eq, User.roles_i18n.invert.map{|key, value| [key, User.roles[value]]},
+               include_blank: t('選択してください'),
+               class: 'form-control mr-1' %>
+
+      </div>
+
+      <div class="input-group-append">
+        <%= f.submit value:"検索", class:"btn btn-primary" %>
+      </div>
+    </div>
+  <%end%>
+</nav>
+
+<table class = 'table'>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= link_to admin_user_path(user) do%>
+        <%= user.decorate.full_name %>
+        <%end%>
+        </td>
+        <td><%= user.role %></td>
+        <td><%= l user.created_at, format: :long %></td>
+
+        <td>
+          <%= link_to edit_admin_user_path(user), type: 'button', class: 'btn btn-success' do %>
+          編集
+          <%end%>
+          <%= link_to admin_user_path(user), type: 'button', method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+          削除
+          <%end%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

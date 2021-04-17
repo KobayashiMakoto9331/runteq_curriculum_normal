@@ -1,0 +1,36 @@
+<% content_for(:title, t('.title')) %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <h1><%= t('.title') %></h1>
+    
+      <%= form_with model: @user, local: true, url: admin_user_path do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+          
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control mb-3' %>
+
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name, class: 'form-control mb-3' %>
+
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name, class: 'form-control mb-3' %>
+
+            <%= f.label :Avatar %><br />
+            <%= f.file_field :Avatar, onchange: 'previewFileWithId(preview)', class: 'form-control mb-3', accept: 'image/*' %>
+            <%= f.hidden_field :Avatar_cache %> 
+
+            <div class='mt-3 mb-3'>
+              <%= image_tag @user.Avatar.url,
+                         class: 'rounded-circle',
+                         id: 'preview',
+                         size: '100x100' %>
+            </div>
+            <%= f.label :role, '権限' %>
+            <%= f.select :role, User.roles.keys, { include_blank: '選択してください'}, { class: 'form-control'} %>
+            
+            <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

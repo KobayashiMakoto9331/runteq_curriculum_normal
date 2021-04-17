@@ -1,4 +1,9 @@
 ja:
+   enums:
+     user:
+       role:
+         general: '一般'
+         admin: '管理者'
    activerecord:
      models:
        user: 'ユーザー'
@@ -14,6 +19,7 @@ ja:
          first_name: '名'
          full_name: '氏名'
          Avatar: 'アバター'
+         role: '権限'
        board:
          title: 'タイトル'
          body: '本文'

@@ -1,0 +1,39 @@
+  <nav class="navbar navbar-light bg-light">
+    <%= search_form_for @q, url: admin_boards_path do |f| %>
+      <div class="input-group mb-3">
+        <%= f.search_field :title_or_body_cont, classs:"form-control", placeholder: t('defaults.search_word'), type:"search" %>
+
+        <%= f.date_field :created_at_gteq,
+                  include_blank: true,
+                  class: 'form-control'%>
+        <%= f.date_field :created_at_lteq_end_of_day,
+                  include_blank: true,
+                  class: 'form-control'%>
+
+        <div class="input-group-append">
+          <%= f.submit value:"検索", class:"btn btn-primary" %>
+        </div>
+      </div>
+    <%end%>
+  </nav>
+
+<table class = 'table'>
+  <tbody>
+    <% @boards.each do |board| %>
+      <tr>
+        <td><%= board.id %></td>
+        <td><%= board.title %></td>
+        <td><%= board.body %></td>
+        <td><%= l board.created_at, format: :long %></td>
+
+        <td>
+          <%= link_to edit_admin_board_path(board), type: 'button', class: 'btn btn-success' do %>
+          編集
+          <%end%>
+          <%= link_to admin_board_path(board), type: 'button', method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+          削除
+          <%end%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
