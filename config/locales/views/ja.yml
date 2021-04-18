@@ -88,6 +88,13 @@ ja:
      users:
        show:
          title: 'ユーザー詳細'
+       index:
+         title: 'ユーザー一覧'
+       edit:
+         title: 'ユーザー編集'
+     boards:
+       index:
+         title: '掲示板一覧'
      dashboards:
        index:
          title: '掲示板'

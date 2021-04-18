@@ -1,0 +1,38 @@
+<%= content_for(:title, @board.title) %>
+<div class="container pt-5">
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%= t('.title') %></h1>
+      <!-- 掲示板内容 -->
+      <article class="card">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col-md-3'>
+              <%= image_tag @board.board_image.url, class:"card-img-top img-fluid", size: '300x200' %>
+            </div>
+            <div class='col-md-9'>
+              <h3 style='display: inline;'><%= @board.title %></h3>
+
+              <%= render 'crud_menus', board: @board if current_user.own?(@board) %>
+
+              <ul class="list-inline">
+                <li class="list-inline-item"><%= @board.user.decorate.full_name %></li>
+                <li class="list-inline-item"><%= l @board.created_at, format: :long %></li>
+              </ul>
+            </div>
+          </div>
+          <p><%= simple_format(@board.body) %></p>
+         </div>
+
+         <td>
+          <%= link_to edit_admin_board_path(@board), type: 'button', class: 'btn btn-success' do %>
+          編集
+          <%end%>
+          <%= link_to admin_board_path(@board), type: 'button', method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+          削除
+          <%end%>
+        </td>
+
+      </article>
+    </div>
+  </div>

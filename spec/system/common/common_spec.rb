@@ -137,6 +137,58 @@ RSpec.describe '共通系', type: :system do
             expect(page).to have_title('ダッシュボード'), '管理画面のダッシュボードのタイトルに「ダッシュボード」が含まれていません'
           end
         end
+
+        describe '掲示板一覧' do
+          it '正しいタイトルが表示されていること' do
+            visit admin_boards_path
+            expect(page).to have_title('掲示板一覧'), '管理画面の掲示板一覧画面のタイトルに「掲示板一覧」が含まれていません'
+            expect(page).to have_title('管理画面'), '管理画面の掲示板一覧画面のタイトルに「管理画面」が含まれていません'
+          end
+        end
+
+        describe '掲示板詳細' do
+          it '正しいタイトルが表示されていること' do
+            board = create(:board)
+            visit admin_board_path(board)
+            expect(page).to have_title(board.title), '管理画面の掲示板詳細画面のタイトルに「掲示板のタイトル名」が含まれていません'
+            expect(page).to have_title('管理画面'), '管理画面の掲示板詳細画面のタイトルに「管理画面」が含まれていません'
+          end
+        end
+
+        describe '掲示板編集' do
+          it '正しいタイトルが表示されていること' do
+            board = create(:board)
+            visit edit_admin_board_path(board)
+            expect(page).to have_title(board.title), '管理画面の掲示板編集画面のタイトルに「掲示板のタイトル名」が含まれていません'
+            expect(page).to have_title('管理画面'), '管理画面の掲示板編集画面のタイトルに「管理画面」が含まれていません'
+          end
+        end
+
+        describe 'ユーザー一覧' do
+          it '正しいタイトルが表示されていること' do
+            visit admin_users_path
+            expect(page).to have_title('ユーザー一覧'), '管理画面のユーザー一覧画面のタイトルに「ユーザー一覧」が含まれていません'
+            expect(page).to have_title('管理画面'), '管理画面のユーザー一覧画面のタイトルに「管理画面」が含まれていません'
+          end
+        end
+
+        describe 'ユーザー詳細' do
+          it '正しいタイトルが表示されていること' do
+            user = create(:user)
+            visit admin_user_path(user)
+            expect(page).to have_title('ユーザー詳細'), '管理画面のユーザー詳細画面のタイトルに「ユーザー詳細」が含まれていません'
+            expect(page).to have_title('管理画面'), '管理画面のユーザー詳細画面のタイトルに「管理画面」が含まれていません'
+          end
+        end
+
+        describe 'ユーザー編集' do
+          it '正しいタイトルが表示されていること' do
+            user = create(:user)
+            visit edit_admin_user_path(user)
+            expect(page).to have_title('ユーザー編集'), '管理画面のユーザー編集画面のタイトルに「ユーザー編集」が含まれていません'
+            expect(page).to have_title('管理画面'), '管理画面のユーザー編集画面のタイトルに「管理画面」が含まれていません'
+          end
+        end
       end
     end
   end

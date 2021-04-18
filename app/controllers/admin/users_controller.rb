@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::BaseController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: %i[show edit update destroy]
 
   def index
     @q = User.ransack(params[:q]) 
@@ -12,7 +12,7 @@ class Admin::UsersController < Admin::BaseController
 
   def update
     if @user.update(user_params)
-      redirect_to admin_users_path
+       redirect_to admin_user_path(@user), success: 'ユーザーを更新しました'
     else
       render :edit
     end

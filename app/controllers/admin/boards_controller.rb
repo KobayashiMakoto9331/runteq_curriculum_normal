@@ -1,18 +1,20 @@
 class Admin::BoardsController < Admin::BaseController
-  before_action :set_board, only: %i[edit destroy update]
+  before_action :set_board, only: %i[edit destroy update show]
 
   def index
-    @q = Board.ransack(params[:q]) 
+    @q = Board.ransack(params[:q])
     @boards = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
-  def edit;end
+  def edit; end
+
+  def show; end
 
   def update
     if @board.update(board_params)
-      redirect_to admin_boards_path, success: '掲示板を編集しました'
+      redirect_to admin_board_path(@board), success: '掲示板を更新しました'
     else
-    render :edit
+      render :edit
     end
   end
 
@@ -20,7 +22,6 @@ class Admin::BoardsController < Admin::BaseController
     @board.destroy!
     redirect_to admin_boards_path, success: '掲示板を削除しました'
   end
-
 
   private
 
