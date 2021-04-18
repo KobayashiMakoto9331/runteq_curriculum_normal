@@ -2,7 +2,7 @@ class Admin::UsersController < Admin::BaseController
   before_action :set_user, only: %i[show edit update destroy]
 
   def index
-    @q = User.ransack(params[:q]) 
+    @q = User.ransack(params[:q])
     @users = @q.result(distinct: true).order(created_at: :desc)
   end
 
@@ -12,7 +12,7 @@ class Admin::UsersController < Admin::BaseController
 
   def update
     if @user.update(user_params)
-       redirect_to admin_user_path(@user), success: 'ユーザーを更新しました'
+      redirect_to admin_user_path(@user), success: 'ユーザーを更新しました'
     else
       render :edit
     end
